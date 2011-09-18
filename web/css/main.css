@@ -1,0 +1,91 @@
+
+body {
+    font-family: helvetica, arial, sans-serif;
+}
+
+.sptf-wrap { 
+    width: 980px; 
+    margin: 0 auto;
+}
+.round {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+header { 
+    margin: 20px 0 20px 0; 
+    height: 406px;
+    width: 100%;
+    background: transparent url(/images/bg-header.png) 0 40px no-repeat scroll;
+}
+header .logo-bar {
+    display: block;
+    width: 100%;
+    height: 49px;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: transparent url(/images/bg-logo-bar.png) 0 0 no-repeat scroll;
+}
+
+header .spotify-free {
+    float: left;
+    background: transparent url(/images/spotify-free.png) 0 0 no-repeat scroll;
+    margin: 60px 0 10px 50px;
+    height: 76px;
+    width: 440px;
+    font-size: 20px;
+    color: #ffffff;
+    text-indent: -9999px;
+}
+
+header .spotify-free-info {
+    color: #fff;
+    float: left;
+    width: 440px;
+    height: 65px;
+    margin: 10px 0 10px 50px;
+    font-size: 14px;
+    line-height: 2em;
+}
+
+header img.app-shots {
+    float: right;
+    margin: 20px 40px 0 0;
+}
+
+header .spotify-free-try {
+    float: left;
+    width: 408px;
+    height: 106px;
+    margin: 10px 0 10px 30px;
+    padding: 10px 10px 0 10px;
+    background: transparent url(/images/bg-btn01.png) 0 0 no-repeat scroll;
+}
+
+.spotify-free-try-btn {
+    display: block;
+    width: 387px;
+    height: 69px;
+    background: transparent url(/images/btn-try-spotify-free.png) 0 0 no-repeat scroll;
+    text-indent: -9999px;
+}
+
+footer {
+    margin: 40px 0;
+}
+
+footer .terms {
+    font-size: 0.7em;
+    color: #b3b3b3;
+}
+
+footer .terms strong {
+    color: #868686;
+}
+
+footer .copyright {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 20px;
+    color: #c2c2c2;
+}

@@ -6,11 +6,11 @@
 
     <!--
     <parameters>
-        <parameter key="bk_spotify.example.class">BK\Bundle\SpotifyBundle\Example</parameter>
+        <parameter key="b_ksptf.example.class">BK\Bundle\sptfBundle\Example</parameter>
     </parameters>
 
     <services>
-        <service id="bk_spotify.example" class="%bk_spotify.example.class%">
+        <service id="b_ksptf.example" class="%b_ksptf.example.class%">
             <argument type="service" id="service_id" />
             <argument>plain_value</argument>
             <argument>%parameter_name%</argument>

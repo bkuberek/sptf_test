@@ -2,12 +2,48 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block title %}Free Music is Here - Download Spotify{% endblock %}</title>
+        <meta name="robots" content="noindex,nofollow" />
+        {% block stylesheets %}
+        <link href="{{ asset('/css/reset.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/main.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <link rel="shortcut icon" href="http://cf.scdn.co/i/favicon.ico" type="image/vnd.microsoft.icon"> 
+	<link rel="apple-touch-icon" href="http://cf.scdn.co/i/touch-icon-iphone.png"> 
+	<link rel="apple-touch-icon" sizes="72x72" href="http://cf.scdn.co/i/touch-icon-ipad.png"> 
+	<link rel="apple-touch-icon" sizes="114x114" href="http://cf.scdn.co/i/touch-icon-iphone4.png">
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body class="homepage">
+        <div class="sptf-wrap">
+            <header class="round">
+                <a class="logo-bar" href="{{ path('homepage') }}">Spotify</a>
+                <div class="header-area">
+                    <img class="app-shots" src="{{ asset('/images/app-shots.png') }}" alt="App images" />
+                    <div class="spotify-free">Spotify Premium 7-day free trial</div>
+                    <div class="spotify-free-info">
+                        Your Spotify Premium 7 day free trial will give you access to the full spotify experience without commitment, you can cancel at any time.*
+                    </div>
+                    <div class="spotify-free-try">
+                        <a class="spotify-free-try-btn" href="#">Try Spotify Premium for free »</a>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+            <footer>
+                <div class="terms">
+                    <strong>Terms & Conditions</strong> This Agreement together with the Spotify Privacy Policy, the Mobile Terms (if applicable) and the Premium Code Terms (if applicable) constitutes all the terms and conditions agreed upon between you and Spotify and supersede any prior agreements, whether written or oral. Any additional or different terms or conditions in any written or oral communication from you to Spotify are void. 
+                </div>
+                <div class="copyright">Copyright © 2007-2010 Spotify Ltd</div>
+            </footer>
+        </div>
+        {% block javascripts %}
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+            <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

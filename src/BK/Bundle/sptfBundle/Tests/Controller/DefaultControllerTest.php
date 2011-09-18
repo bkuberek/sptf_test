@@ -1,6 +1,6 @@
 <?php
 
-namespace BK\Bundle\SpotifyBundle\Tests\Controller;
+namespace BK\Bundle\sptfBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

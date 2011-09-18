@@ -1,5 +1,5 @@
-BKSpotifyBundle:
-    resource: "@BKSpotifyBundle/Controller/"
+BKsptfBundle:
+    resource: "@BKsptfBundle/Controller/"
     type:     annotation
     prefix:   /
 
