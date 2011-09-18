@@ -1,0 +1,6 @@
+.DS_Store
+*~
+/app/cache/*
+/app/log/*
+
+nbproject

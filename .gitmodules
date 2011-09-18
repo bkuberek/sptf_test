@@ -1,0 +1,3 @@
+[submodule "imdb"]
+	path = imdb
+	url = git@github.com:bkuberek/imdb_toplist.git
