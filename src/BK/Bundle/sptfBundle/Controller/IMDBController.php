@@ -13,7 +13,7 @@ class IMDBController extends Controller
    */
   public function indexAction()
   {
-    return $this->redirect($this->generateUrl('homepage')); //$this->render('BKsptfBundle:Default:index.html.twig', array());
+    return $this->redirect($this->generateUrl('imdb_toplist'));
   }
 
   /**
@@ -22,7 +22,28 @@ class IMDBController extends Controller
   public function toplistAction()
   {
     
-    return $this->render('BKsptfBundle:IMDB:toplist.html.twig', array());
+    $em = $this->getDoctrine()->getEntityManager();
+    $movies = $this->getDoctrine()
+            ->getRepository('BKsptfBundle:Movie')
+            ->findAll();
+    
+    return $this->render('BKsptfBundle:IMDB:toplist.html.twig', array('movies' => $movies));
+  }
+  
+  /**
+   * @Route("/imdb/movie/{id}", name="imdb_movie")
+   */
+  public function showAction($id)
+  {
+    $movie = $this->getDoctrine()
+            ->getRepository('BKsptfBundle:Movie')
+            ->find($id);
+
+    if (!$movie) {
+      throw $this->createNotFoundException('Movie not found');
+    }
+
+    return $this->render('BKsptfBundle:IMDB:movie.html.twig', array('movie' => $movie));
   }
 
 }

@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+{% block title %}{{ movie.title }} ({{ movie.year }}) - IMDB Toplist - powered by Spotify{% endblock %}
+{% block content %}
+<section class="movies">
+    <article class="movie">
+        {% if movie.imageLarge %}
+            <img src="{{ movie.imageLarge }}" alt="Movie cover" />
+        {% endif %}
+        <h1>{{ movie.title }} <span class="year">({{ movie.year }})</span></h1>
+        {% if movie.originalTitle %}
+        <h2>Original title: {{ movie.originalTitle }}</h2>
+        {% endif %}
+        {% if movie.director %}
+        <p class="director">Directed by: {{ movie.director }}</p>
+        {% endif %}
+        <div class="ratings">
+            <span class="rating">Rated: {{ movie.rating }}</span>
+            <span class="votes">{{ movie.votes }} Votes</span>
+        </div>
+        {% if movie.description %}
+        <p class="description">{{ movie.description }}</p>
+        {% endif %}
+    </article>
+</section>
+{% endblock %}

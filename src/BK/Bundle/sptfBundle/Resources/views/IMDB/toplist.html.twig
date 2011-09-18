@@ -2,6 +2,30 @@
 {% block title %}IMDB Toplist - powered by Spotify{% endblock %}
 {% block content %}
 
-Hi
+<section class="movies">
+    <table class="list">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Rank</th>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+
+            {% else %}
+                <tr><td colspan="5">There are no results</td></tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5"></td>
+            </tr>
+        </tfoot>
+    </table>
+</section>
 
 {% endblock %}
