@@ -2,10 +2,11 @@
 # encoding: utf-8
 
 curdir=`pwd`
+scrapy=`which scrapy`
 
 cd `dirname $0`/../imdb
 
-/usr/bin/scrapy crawl imdb_toplist
+$scrapy crawl imdb_toplist
 
 cd $curdir
 
