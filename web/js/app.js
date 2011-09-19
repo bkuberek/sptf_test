@@ -9,14 +9,22 @@ User.validate = function(key, value) {
     
     var response = {};
     
-    switch (this.id) {
+    // this is not working. I can't figure this out at the moment. Perhaps another time.'
+    switch (key) {
         case 'user_username':
         case 'user_email':
-            $.get("/user/validate", {field: key, value: value}, function(data){
-                response = data;
+            $.ajax({
+                url: "/user/validate",
+                type: 'get',
+                dataType: 'json',
+                data: {field: key, value: value},
+                success: function(data){
+                    console.log('ajax', data)
+                    response = data;
+                }
             });
             break;
-        case 'user_passord':
+        case 'user_password':
             if (false == weakRegex.test(value)) {
                 response.valid = true;
                 response.message = 'Weak!'
@@ -29,7 +37,6 @@ User.validate = function(key, value) {
             }
             break;
     }
-    
     return response;
 };
 
