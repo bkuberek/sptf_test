@@ -13,10 +13,20 @@ The results of this test is available at: [sptf.bkuberek.com](http://sptf.bkuber
 
 [W3C Valid HTML5](http://validator.w3.org/check?uri=http%3A%2F%2Fsptf.bkuberek.com%2F)
 
+What's in there:
+
+1. HTML5 where applicable
+2. Good SEO and accessibility
+3. Unobtrusive JavaScript
+4. Compiled JavaScript using closure
+5. Compiled CSS using yuicompressor
+6. Modal window with interactive form and validation (sorry this was poorly done due to lack of time)
+7. Cross browser support (tested on Chrome, Safari, Firefox, Opera, IE7+, Dolphin HD, Android Stock Browser)
+
 This did not come up as I had in mind for I was tired. 
-I had worked all night on the Backend Test and it was around 6am when I started to work on the "Try ... Premium for free" modal window and form validation.
-I will have to leave it as is but if you want I will be able to show you more JavaScript/ajax work I have already done. 
-Most of my work cannot be publicly available but I can show it to you in person.
+I had worked all night on the Backend Test and it was around 6am when I started to work on the "Try Sptf Premium for free" modal window and form validation.
+I will have to leave it as is but if you want I will can show you more JavaScript/Ajax work I have already done. 
+Most of my work is not publicly available but I can show it to you in person.
 
 
 ##  Backend Test
