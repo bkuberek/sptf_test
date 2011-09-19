@@ -14,9 +14,12 @@
         <p class="director">Directed by: {{ movie.director }}</p>
         {% endif %}
         <div class="ratings">
-            <span class="rating">Rated: {{ movie.rating }}</span>
-            <span class="votes">{{ movie.votes }} Votes</span>
+            <p class="rating"><b>Rated:</b> {{ movie.rating }}</p>
+            <p class="votes"><b>Votes:</b> {{ movie.votes }}</p>
         </div>
+        {% if movie.url %}
+        <a class="url" target="_blank" href="{{ movie.url }}">View on IMDB</a>
+        {% endif %}
         {% if movie.description %}
         <p class="description">{{ movie.description }}</p>
         {% endif %}

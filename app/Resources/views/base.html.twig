@@ -16,20 +16,13 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-    <body class="homepage">
+    <body>
         <div class="sptf-wrap">
-            <header class="round">
-                <a class="logo-bar" href="{{ path('homepage') }}">Spotify</a>
-                <div class="header-area">
-                    <img class="app-shots" src="{{ asset('/images/app-shots.png') }}" alt="App images" />
-                    <div class="spotify-free">Spotify Premium 7-day free trial</div>
-                    <div class="spotify-free-info">
-                        Your Spotify Premium 7 day free trial will give you access to the full spotify experience without commitment, you can cancel at any time.*
-                    </div>
-                    <div class="spotify-free-try">
-                        <a class="spotify-free-try-btn" href="#">Try Spotify Premium for free »</a>
-                    </div>
-                </div>
+            <div class="logo-bar">
+                <a class="logo" href="{{ path('homepage') }}">Spotify</a>
+            </div>
+            <header>
+                {% block header %}{% endblock %}
             </header>
             <div class="content">
                 {% block content %}{% endblock %}

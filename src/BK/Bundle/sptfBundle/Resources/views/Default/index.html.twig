@@ -1,7 +1,71 @@
 {% extends '::base.html.twig' %}
 {% block title %}Frontend Test - {{ parent() }}{% endblock %}
+{% block header %}
+<div class="header-area">
+    <img class="app-shots" src="{{ asset('/images/app-shots.png') }}" alt="App images" />
+    <div class="spotify-free">Spotify Premium 7-day free trial</div>
+    <div class="spotify-free-info">
+        Your Spotify Premium 7 day free trial will give you access to the full spotify experience without commitment, you can cancel at any time.*
+    </div>
+    <div class="spotify-free-try">
+        <a class="spotify-free-try-btn" href="#">Try Spotify Premium for free »</a>
+    </div>
+</div>
+{% endblock %}
 {% block content %}
-
-Frontend test will go here
-
+<section class="homepage">
+    <div class="section-header">Just a few of Spotify's amazing features</div>
+    <div class="row">
+        <article class="col1">
+            <img src="{{ asset('/images/playlists.png') }}" alt="graphic" />
+            <div class="info">
+                <h3>Playlists</h3>
+                <p>With Spotify, creating playlists is as easy as drag and drop. Each new playlist is saved to your account, and will be accessible from wherever you use Spotify.</p>
+                <a class="read-more" href="#">Learn more »</a>
+            </div>
+        </article>
+        <article class="col2">
+            <img src="{{ asset('/images/sharing-music.png') }}" alt="graphic" />
+            <div class="info">
+                <h3>Sharing music</h3>
+                <p>To us, sharing music is one of life's great pleasures. That's why we've made it so simple for you to share tracks and play-lists with your friends. When we say 'simple', we mean one-click-simple.</p>
+                <a class="read-more" href="#">Learn more »</a>
+            </div>
+        </article>
+        <article class="col3">
+            <img src="{{ asset('/images/searching-music.png') }}" alt="graphic" />
+            <div class="info">
+                <h3>Searching for music</h3>
+                <p>When you've got millions and millions of tracks to choose from, where do you start? With a search.</p>
+                <a class="read-more" href="#">Learn more »</a>
+            </div>
+        </article>
+    </div>
+    <div class="row">
+        <article class="col1">
+            <img src="{{ asset('/images/mobile-music.png') }}" alt="graphic" />
+            <div class="info">
+                <h3>Mobile music</h3>
+                <p>Introduce Spotify to your mobile phone and you'll have music on tap wherever you go. Play any track live over the internet, or save your playlists and listen offline, it's your choice.</p>
+                <a class="read-more" href="#">Learn more »</a>
+            </div>
+        </article>
+        <article class="col2">
+            <img src="{{ asset('/images/offline-mode.png') }}" alt="graphic" />
+            <div class="info">
+                <h3>Offline mode</h3>
+                <p>If you find yourself without an Internet connection, Spotify Offline keeps the music flowing.</p>
+                <a class="read-more" href="#">Learn more »</a>
+            </div>
+        </article>
+        <article class="col3">
+            <img src="{{ asset('/images/your-spotify-library.png') }}" alt="graphic" />
+            <div class="info">
+                <h3>Your Spotify Library</h3>
+                <p>Now that you've got so much music at your disposal, you'll need a seriously good library. So we've built one for you. A library that's as clever as it is simple to use.</p>
+                <a class="read-more" href="#">Learn more »</a>
+            </div>
+        </article>
+    </div>
+</section>
 {% endblock %}
