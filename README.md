@@ -184,16 +184,15 @@ So I got it to work by installing it this way:
 
 ### Setup project
 
-**clone repo:**
+* clone repo:
 
-    cd /srv/www
-    git clone git://github.com/bkuberek/sptf_test.git sptf
-    cd sptf
-    git submodule init && git submodule update
-    mkdir -p app/cache app/logs
+        cd /srv/www
+        git clone git://github.com/bkuberek/sptf_test.git sptf
+        cd sptf
+        git submodule init && git submodule update
+        mkdir -p app/cache app/logs
     
-**update config:** we need to update the location to closure and yuicompressor. 
-
+* update config: we need to update the location to closure and yuicompressor. 
 * Open `app/config/config.yml` and update the lines 30-34:
 
         # Assetic Configuration
