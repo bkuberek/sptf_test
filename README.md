@@ -34,7 +34,7 @@ I was a bit confused with the test spec and I could not ask questions as I worke
 1. Built a bot using the [Scrapy](http://scrapy.org) framework.
 2. The bot launches a spider to the given URL (http://www.imdb.com/charts/top).
 3. The spider looks for the "Votes by Decade" section on the left sidebar and crawls into those links.
-4. For each of the pages, the spider parses the tabular list of movies and scrapes row and columns and hydrates an ImdbItem() object.
+4. For each of the pages, the spider parses the tabular list of movies and scrapes row and columns and hydrates an ImdbItem object.
 5. Then the ImdbPipeline does some basic validation and persists the ImdbItem to the database.
 
 **Note:** on item 3 above, I decided to go this route because I was confused as to how I would gather only 10 items and have 10 items per date upon filtering. 
@@ -44,9 +44,9 @@ Today I realize that the results are slightly different from the "Top 250" displ
 
 **web app:**
 
-1. Built a simple Symfony Bundle to house the Models, Views and Controllers. (this bundle also renders the frontend test, see below).
+1. Built a simple Symfony Bundle to house the Models, Views and Controllers. (this bundle also renders the frontend test, see above).
 2. Used [Doctrine 2 DBAL](http://www.doctrine-project.org/projects/dbal) and [Doctrine 2 ORM](http://www.doctrine-project.org/projects/orm) to query the database.
-3. Results are ordered by `rating asc` and `votes asc` in order to display "ranking".
+3. Results are ordered by `rating desc` and `votes desc` in order to display "ranking".
 4. Used Memcache to cache query results. Results are cached until 1AM of next day. The cache then needs to be rebuild, which happens upon first request. (see Afterthoughts section for additional notes)
 
 I left the debug toolbar visible at the bottom of the page on purpose. 
