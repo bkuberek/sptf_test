@@ -3,13 +3,14 @@ SPTF Tests
 
 **tests:** "Backend Web Test" and "Frontend Test"
 
-**Note:** I was given 2 tests and I tried to complete both of them as best as I could given the time. 
-The results may not be exact to the given spec but attempt to implement all requirements.
+**Note:** I was given 2 tests and I tried to complete both of them as best as I could given the time and circumstances. 
+The results may not be exactly what was given in the spec but I attempted to implement all requirements. Please read below for links to preview the apps.
+
 I look forward in hearing back from you.
 
 ###  Backend Test
 
-This application constitutes of part Python and part PHP. 
+This application is part Python and part PHP. 
 Python was used to build the IMDB bot using the [Scrapy](http://scrapy.org) framework. 
 PHP was used to render the user facing application. I chose to use the [Symfony](http://symfony.com) framework for its great set of tools and performance.
 
@@ -33,6 +34,9 @@ Today I realize that the results are slightly different from the "Top 250" displ
 2. Used [Doctrine 2 DBAL](http://www.doctrine-project.org/projects/dbal) and [Doctrine 2 ORM](http://www.doctrine-project.org/projects/orm) to query the database.
 3. Results are ordered by `rating asc` and `votes asc` in order to display "ranking".
 4. Used Memcache to cache query results. Results are cache until 1AM of next day. The cache does not need to be updated more than once a day. (see Afterthoughts section for additional notes)
+
+I left the debug toolbar visible at the bottom of the page on purpose. 
+You can look at the bottom right for a DB icon. Next to it there is a number of queries for the current page.
 
 The result is available at:
 
