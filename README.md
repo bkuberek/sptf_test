@@ -113,6 +113,8 @@ You can see code I have written in this files:
 * PHP's memcache extension (via PECL)
 * Python's Memcache module
 * PyMySQL
+* closurecompiler/compiler.jar
+* yuicompressor-2.4.x.jar
 
 ### Cron
 
@@ -182,6 +184,37 @@ So I got it to work by installing it this way:
 **both:**
 
     easy_install -U w3lib PyMySQL
+
+
+### Setup project
+
+**clone repo:**
+
+    cd /srv/www
+    git clone git://github.com/bkuberek/sptf_test.git sptf
+    cd sptf
+    git submodule init && git submodule update
+    mkdir -p app/cache app/logs
+    
+**update config:** we need to update the location to closure and yuicompressor. 
+
+* Open `app/config/config.yml` and update the lines 30-34:
+
+        # Assetic Configuration
+        assetic:
+            debug: %kernel.debug%
+            use_controller: false
+            filters:
+                cssrewrite: ~
+                closure:
+                    jar: /srv/lib/java/closurecompiler/compiler.jar
+                yui_css:
+                    jar: /srv/lib/java/yuicompressor/yuicompressor-2.4.6.jar
+                
+* Update ACL settings. See [this page](http://symfony.com/doc/current/book/installation.html#downloading-a-symfony2-distribution) for instructions.
+* Compress assets
+
+        ./app/console assetic:dump
 
 
 ## Afterthought
