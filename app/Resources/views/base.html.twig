@@ -5,9 +5,9 @@
         <title>{% block title %}Free Music is Here - Download Spotify{% endblock %}</title>
         <meta name="robots" content="noindex,nofollow" />
         {% block stylesheets %}
-        <link href="{{ asset('/css/reset.css') }}" type="text/css" rel="stylesheet" />
-        <link href="{{ asset('/css/colorbox.css') }}" type="text/css" rel="stylesheet" />
-        <link href="{{ asset('/css/main.css') }}" type="text/css" rel="stylesheet" />
+        {% stylesheets 'css/reset.css' 'css/colorbox.css' 'css/main.css' filter='yui_css' output='css/combined.css' %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+        {% endstylesheets %}
         {% endblock %}
         <link rel="shortcut icon" href="http://cf.scdn.co/i/favicon.ico" type="image/vnd.microsoft.icon"> 
 	<link rel="apple-touch-icon" href="http://cf.scdn.co/i/touch-icon-iphone.png"> 
@@ -36,9 +36,9 @@
             </footer>
         </div>
         {% block javascripts %}
-            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-            <script type="text/javascript" src="{{ asset('/js/jquery.colorbox-min.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
+        {% javascripts 'js/jquery.min.js' 'js/jquery.colorbox-min.js' 'js/app.js' filter='closure' output='js/combined.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         {% endblock %}
     </body>
 </html>

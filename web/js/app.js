@@ -1,4 +1,8 @@
-
+/**
+ * Script written for sptf_test
+ * 
+ * @author Bastian Kuberek <bastian@bkuberek.com>
+ */
 
 var User = User || {};
 
