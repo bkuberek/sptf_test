@@ -1,0 +1,29 @@
+<h3 class="title">Try Spotify Premium for free</h3>
+<div class="box-content">
+    <p>Almost there! Please fill this out so that we can send you a free trial of Spotify Premium</p>
+    <form action="{{ path('try_premium') }}" method="post">
+        <div class="form-row">
+            <label for="user_username">Username</label>
+            <input id="user_username" type="text" name="user[username]" />
+            <span class="notification"></span>
+        </div>
+        <div class="form-row">
+            <label for="user_email">Email</label>
+            <input id="user_email" type="text" name="user[email]" />
+            <span class="notification"></span>
+        </div>
+        <div class="form-row">
+            <label for="user_password">Password</label>
+            <input id="user_password" type="password" name="user[password]" />
+            <span class="notification"></span>
+        </div>
+        <div class="form-row">
+            <label for="user_password_again">Confirm Password</label>
+            <input id="user_password_again" type="password" name="user[password_again]" />
+            <span class="notification"></span>
+        </div>
+        <div class="form-row form-action">
+            <input type="submit" value="Get Started!" />
+        </div>
+    </form>
+</div>

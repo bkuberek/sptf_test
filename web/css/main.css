@@ -8,12 +8,6 @@ body {
     margin: 0 auto;
 }
 
-.round {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-
 .logo-bar {
     display: block;
     width: 100%;
@@ -195,4 +189,73 @@ section.movies table.list tr:nth-child(even) td {
 section.movies h1 {
     font-size: 2em;
     margin: 0 0 1em 0;
+}
+
+#colorbox h3.title {
+    height: 34px;
+    overflow: hidden;
+    background: transparent url(/images/bg-logo-bar.png) 50% 50% no-repeat scroll;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 16px 0 0 20px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#colorbox .box-content {
+    color: #333333;
+    padding: 20px;
+    font-size: 14px;
+}   
+
+#colorbox form {
+    padding: 20px 0 0 0;
+}
+
+#colorbox .form-row {
+    height: 16px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+#colorbox .form-row:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#colorbox .form-action {
+    margin-top: 20px;
+}
+
+#colorbox .form-row label {
+    display: block;
+    width: 120px;
+    float: left;
+    font-weight: bold;
+    line-height: 24px;
+}
+
+#colorbox .form-row input[type="text"],
+#colorbox .form-row input[type="url"],
+#colorbox .form-row input[type="email"],
+#colorbox .form-row input[type="number"],
+#colorbox .form-row input[type="password"] {
+    width: 230px;
+    float: left;
+    margin-right: 10px;
+}
+
+#colorbox .form-row .notification {
+    display: block;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    width: 238px;
 }

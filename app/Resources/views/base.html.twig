@@ -6,6 +6,7 @@
         <meta name="robots" content="noindex,nofollow" />
         {% block stylesheets %}
         <link href="{{ asset('/css/reset.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/colorbox.css') }}" type="text/css" rel="stylesheet" />
         <link href="{{ asset('/css/main.css') }}" type="text/css" rel="stylesheet" />
         {% endblock %}
         <link rel="shortcut icon" href="http://cf.scdn.co/i/favicon.ico" type="image/vnd.microsoft.icon"> 
@@ -36,6 +37,7 @@
         </div>
         {% block javascripts %}
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+            <script type="text/javascript" src="{{ asset('/js/jquery.colorbox-min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
         {% endblock %}
     </body>
