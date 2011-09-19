@@ -7,7 +7,7 @@ SPTF Tests
 The results may not be exactly per the spec but I attempted to implement all requirements. Please read below for links to preview the apps.
 
 
-### Frontend Test
+## Frontend Test
 
 The results of this test is available at: [sptf.bkuberek.com](http://sptf.bkuberek.com)
 
@@ -19,7 +19,7 @@ I will have to leave it as is but if you want I will be able to show you more Ja
 Most of my work cannot be publicly available but I can show it to you in person.
 
 
-###  Backend Test
+##  Backend Test
 
 The result is available at: [sptf.bkuberek.com/imdb](http://sptf.bkuberek.com/imdb)
 
