@@ -1,24 +1,57 @@
- Test
-============
+SPTF Tests
+==========
 
-This project's main purpose is to complete the following tests:
+**tests:** "Backend Web Test" and "Frontend Test"
+
+**Note:** I was given 2 tests and I tried to complete both of them as best as I could given the time. 
+The results may not be exact to the given spec but attempt to implement all requirements.
+I look forward in hearing back from you.
 
 ###  Backend Test
 
-This application constitutes of parts written in Python and parts written in PHP. 
-Python was used to build the IMDB spider using the scrapy framework. 
-PHP was used to render the user facing application. I chose to use the Symfony framework for its great set of tools and performance.
+This application constitutes of part Python and part PHP. 
+Python was used to build the IMDB bot using the [Scrapy](http://scrapy.org) framework. 
+PHP was used to render the user facing application. I chose to use the [Symfony](http://symfony.com) framework for its great set of tools and performance.
+
+I was a bit confused with the test spec and I could not ask questions as I worked nightly over the weekend. So here is what I have done:
+
+**bot:**
+
+1. Built a bot using the [Scrapy](http://scrapy.org) framework.
+2. The bot launches a spider to the given URL (http://www.imdb.com/charts/top).
+3. The spider looks for the "Votes by Decade" section on the left sidebar and crawls into those links.
+4. For each of the pages, the spider parses the tabular list of movies and scrapes row and columns and hydrates an ImdbItem() object.
+5. Then the ImdbPipeline does some basic validation and persists the ImdbItem to the database.
+
+**Note:** on item 3 above, I decided to go this route because I was confused as to how I would gather 10 items and be able to filter by date. 
+At the time I thought I would gather all top movies for all times and then allow the user to filter by date displaying the top 10 given the dates chosen by the user.
+Today I realize that the results are slightly different from the "Top 250" displayed at IMDB because for that particular list they only count votes from regular users.
+
+**web app:**
+
+1. Built a simple Symfony Bundle to house the Controller, Views, and Model. (this bundle also renders the frontend test, see below).
+2. Used [Doctrine 2 DBAL](http://www.doctrine-project.org/projects/dbal) and [Doctrine 2 ORM](http://www.doctrine-project.org/projects/orm) to query the database.
+3. Results are ordered by `rating asc` and `votes asc` in order to display "ranking".
+4. Used Memcache to cache query results. Results are cache until 1AM of next day. The cache does not need to be updated more than once a day. (see Afterthoughts section for additional notes)
 
 The result is available at:
 
-http://sptf.bkuberek.com/imdb/toplist
+[sptf.bkuberek.com/imdb](http://sptf.bkuberek.com/imdb)
+
 
 ### Frontend Test
 
-The results of this test are available at: 
+This did not come up as I had in mind for I was tired. 
+I had worked all night on the Backend Test and it was around 6am when I started to work on the "Try ... Premium for free" modal window and form validation.
+I will have to leave it as is but if you want I will be able to show you more JavaScript/ajax work I have already done.
 
-http://sptf.bkuberek.com
+The results of this test is available at: 
 
+[sptf.bkuberek.com](http://sptf.bkuberek.com)
+
+[W3C Valid HTML5](http://validator.w3.org/check?uri=http%3A%2F%2Fsptf.bkuberek.com%2F)
+
+------
 
 ## Installation requirements
 
