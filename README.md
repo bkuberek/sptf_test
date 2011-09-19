@@ -60,10 +60,6 @@ Today I realize that the results are slightly different from the "Top 250" displ
 3. Results are ordered by `rating desc` and `votes desc` in order to display "ranking".
 4. Used Memcache to cache query results. Results are cached until 1AM of next day. The cache then needs to be rebuild, which happens upon first request. (see Afterthoughts section for additional notes)
 
--I left the debug toolbar visible at the bottom of the page on purpose.- 
--You can look at the bottom right for a DB icon. Next to it there is a number of queries for the current page.-
-I turned debugging off in order to enable css and javascript compression. So there wont be a debug toolbar.
-
 You can see code I have written in this files:
 
     /sptf_test/
