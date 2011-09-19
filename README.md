@@ -9,7 +9,7 @@ The results may not be exactly per the spec but I attempted to implement all req
 
 ## Frontend Test
 
-The results of this test is available at: [sptf.bkuberek.com](http://sptf.bkuberek.com)
+The result of this test is available at: [sptf.bkuberek.com](http://sptf.bkuberek.com)
 
 [W3C Valid HTML5](http://validator.w3.org/check?uri=http%3A%2F%2Fsptf.bkuberek.com%2F)
 
@@ -23,7 +23,8 @@ What's in there:
 6. Modal window with interactive form and validation (sorry this was poorly done due to lack of time)
 7. Cross browser support (tested on Chrome, Safari, Firefox, Opera, IE7+, Dolphin HD, Android Stock Browser)
 
-This did not come up as I had in mind for I was tired. 
+
+**Disclosure:** This did not come up as I had in mind for I was tired. 
 I had worked all night on the Backend Test and it was around 6am when I started to work on the "Try Sptf Premium for free" modal window and form validation.
 I will have to leave it as is but if you want I will can show you more JavaScript/Ajax work I have already done. 
 Most of my work is not publicly available but I can show it to you in person.
@@ -59,8 +60,9 @@ Today I realize that the results are slightly different from the "Top 250" displ
 3. Results are ordered by `rating desc` and `votes desc` in order to display "ranking".
 4. Used Memcache to cache query results. Results are cached until 1AM of next day. The cache then needs to be rebuild, which happens upon first request. (see Afterthoughts section for additional notes)
 
-I left the debug toolbar visible at the bottom of the page on purpose. 
-You can look at the bottom right for a DB icon. Next to it there is a number of queries for the current page.
+-I left the debug toolbar visible at the bottom of the page on purpose.- 
+-You can look at the bottom right for a DB icon. Next to it there is a number of queries for the current page.-
+I turned debugging off in order to enable css and javascript compression. So there wont be a debug toolbar.
 
 You can see code I have written in this files:
 
