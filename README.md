@@ -3,7 +3,7 @@ SPTF Tests
 
 **tests:** "Backend Web Test" and "Frontend Test"
 
-**Note:** I was given 2 tests and I tried to complete both of them as best as I could given the time and circumstances. 
+**Note:** I was given 2 tests and I tried to complete both of them as best as I could given the time and circumstances.
 The results may not be exactly per the spec but I attempted to implement all requirements. Please read below for links to preview the apps.
 
 
@@ -20,22 +20,16 @@ What's in there:
 3. Unobtrusive JavaScript
 4. Compiled JavaScript using closure
 5. Compiled CSS using yuicompressor
-6. Modal window with interactive form and validation (sorry this was poorly done due to lack of time)
+6. Modal window with interactive form and client/server side validation + ajax
 7. Cross browser support (tested on Chrome, Safari, Firefox, Opera, IE7+, Dolphin HD, Android Stock Browser)
-
-
-**Disclosure:** This did not come up as I had in mind for I was tired. 
-I had worked all night on the Backend Test and it was around 6am when I started to work on the "Try Sptf Premium for free" modal window and form validation.
-I will have to leave it as is but if you want I will can show you more JavaScript/Ajax work I have already done. 
-Most of my work is not publicly available but I can show it to you in person.
 
 
 ##  Backend Test
 
 The result is available at: [sptf.bkuberek.com/imdb](http://sptf.bkuberek.com/imdb)
 
-This application is part Python and part PHP. 
-Python was used to build the IMDB bot using the [Scrapy](http://scrapy.org) framework. 
+This application is part Python and part PHP.
+Python was used to build the IMDB bot using the [Scrapy](http://scrapy.org) framework.
 PHP was used to render the user facing application. I chose to use the [Symfony](http://symfony.com) framework for its great set of tools and performance.
 
 I was a bit confused with the test spec and I could not ask questions as I worked nightly over the weekend. So here is what I have done:
@@ -48,8 +42,8 @@ I was a bit confused with the test spec and I could not ask questions as I worke
 4. For each of the pages, the spider parses the tabular list of movies and scrapes row and columns and hydrates an ImdbItem object.
 5. Then the ImdbPipeline does some basic validation and persists the ImdbItem to the database.
 
-**Note:** on item 3 above, I decided to go this route because I was confused as to how I would gather only 10 items and have 10 items per date upon filtering. 
-At the time, I thought of scraping all movies under the "decades" section for I would have all top movies for each date date. 
+**Note:** on item 3 above, I decided to go this route because I was confused as to how I would gather only 10 items and have 10 items per date upon filtering.
+At the time, I thought of scraping all movies under the "decades" section for I would have all top movies for each date date.
 Then I could work with more data and have something meaningful t display.
 Today I realize that the results are slightly different from the "Top 250" displayed at `/charts/top` page because for that particular list they only count votes from regular voters.
 
@@ -96,7 +90,7 @@ You can see code I have written in this files:
             images/
             js/
                 app.js
-                
+
 
 ## Installation requirements
 
@@ -122,9 +116,9 @@ add the following to crontab
 ### MySQL Database
 
     CREATE DATABASE `imdb_toplist` CHARSET utf8 COLLATE utf8_general_ci;
-    
+
     USE `imdb_toplist`;
-    
+
     CREATE TABLE `movie` (
       `id` int(11) unsigned NOT NULL,
       `url` varchar(255) DEFAULT NULL,
@@ -144,7 +138,7 @@ add the following to crontab
       KEY `rating_idx` (`rating`),
       KEY `votes_idx` (`votes`)
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-    
+
     CREATE USER 'imdb'@'localhost' IDENTIFIED BY 'imdb123';
     GRANT ALL PRIVILEGES ON `imdb_toplist`.* TO 'imdb'@'localhost';
     FLUSH PRIVILEGES;
@@ -191,8 +185,8 @@ So I got it to work by installing it this way:
         cd sptf
         git submodule init && git submodule update
         mkdir -p app/cache app/logs
-    
-* update config: we need to update the location to closure and yuicompressor. 
+
+* update config: we need to update the location to closure and yuicompressor.
 * Open `app/config/config.yml` and update the lines 30-34:
 
         # Assetic Configuration
@@ -205,7 +199,7 @@ So I got it to work by installing it this way:
                     jar: /srv/lib/java/closurecompiler/compiler.jar
                 yui_css:
                     jar: /srv/lib/java/yuicompressor/yuicompressor-2.4.6.jar
-                
+
 * Update ACL settings. See [this page](http://symfony.com/doc/current/book/installation.html#downloading-a-symfony2-distribution) for instructions.
 * Compress assets
 
@@ -214,7 +208,7 @@ So I got it to work by installing it this way:
 
 ## Afterthought
 
-This project was done quick and the focus was on getting the test requirements met. 
+This project was done quick and the focus was on getting the test requirements met.
 There are a couple of things that should been done differently on a real world application.
 
 Some of these are:
