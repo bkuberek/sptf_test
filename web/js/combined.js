@@ -29,7 +29,13 @@ $(document).ready(function() {
             $('#colorbox form').bind('submit', function(event) {
                 event.preventDefault();
                 
-                if (this.valid) {
+                var valid = true;
+                
+                $(this).find('input[type="text"], input[type="email"], input[type="password"]').each(function() {
+                    if (!this.valid) valid = false;
+                });
+                
+                if (valid) {
                     $('#cboxLoadedContent').load('/try-premium/success', function() {
                         $.colorbox.resize();
                     });
@@ -47,10 +53,9 @@ $(document).ready(function() {
                 var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
                 var weakRegex = new RegExp("(?=.{6,}).*", "g");
                 var input = this, value = input.value, id = input.id;
-                var form = $(this).parents('form')[0];
                 
                 if (value.length < 3) {
-                    form.valid = false;
+                    input.valid = false;
                     $(input).next('.notification').text(value.length == 0 ? 'Required' : 'Too short. Minimum 3 characters');
                     $(input).next('.notification').addClass('error');
                     return;
@@ -69,11 +74,11 @@ $(document).ready(function() {
                             },
                             success: function(data){
                                 if (data.valid) {
-                                    form.valid = true;
+                                    input.valid = true;
                                     $(input).next('.notification').removeClass('error');
                                     $(input).next('.notification').addClass('valid');
                                 } else {
-                                    form.valid = false;
+                                    input.valid = false;
                                     $(input).next('.notification').removeClass('valid');
                                     $(input).next('.notification').addClass('error');
                                 }
@@ -87,35 +92,31 @@ $(document).ready(function() {
                         
                     case 'user_password':
                         if (false == weakRegex.test(value)) {
-                            form.valid = true;
+                            input.valid = true;
                             $(input).next('.notification').removeClass('error');
                             $(input).next('.notification').addClass('valid');
                             $(input).next('.notification').text('Weak');
                         } else if (strongRegex.test(value)) {
-                            form.valid = true;
+                            input.valid = true;
                             $(input).next('.notification').removeClass('error');
                             $(input).next('.notification').addClass('valid');
                             $(input).next('.notification').text('Strong!');
                         } else if (mediumRegex.test(value)) {
-                            form.valid = true;
+                            input.valid = true;
                             $(input).next('.notification').removeClass('error');
                             $(input).next('.notification').addClass('valid');
                             $(input).next('.notification').text('Medium');
-                        } else {
-                            form.valid = false;
-                            $(input).next('.notification').removeClass('valid');
-                            $(input).next('.notification').addClass('error');
                         }
                         break;
                         
                     case 'user_password_again':
                         if (value == $('#user_password').attr('value')) {
-                            form.valid = true;
+                            input.valid = true;
                             $(input).next('.notification').removeClass('error');
                             $(input).next('.notification').addClass('valid');
                             $(input).next('.notification').text('Match');
                         } else {
-                            form.valid = false;
+                            input.valid = false;
                             $(input).next('.notification').removeClass('valid');
                             $(input).next('.notification').addClass('error');
                             $(input).next('.notification').text('Does not match');

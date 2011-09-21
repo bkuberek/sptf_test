@@ -425,7 +425,7 @@ section.movies h1 {
 #colorbox .downloads ul {
     float: left;
     list-style: none;
-    margin: 16px 0 0 30px;
+    margin: 0 0 0 30px;
     padding: 0;
 }
 
