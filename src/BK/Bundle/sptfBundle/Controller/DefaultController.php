@@ -53,7 +53,7 @@ class DefaultController extends Controller
       $email_taken[] = $username.'@yahoo.com';
       $email_taken[] = $username.'@hotmail.com';
       $email_taken[] = $username.'@test.com';
-      $email_taken[] = $username.'@'.$username.'com';
+      $email_taken[] = $username.'@'.$username.'.com';
     }
     
     if ($field == 'username') {
