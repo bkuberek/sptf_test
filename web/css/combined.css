@@ -1,0 +1,389 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated:2010-09-17
+Author:Richard Clark - http://richclarkdesign.com 
+Twitter:@rich_clark
+*/
+html,body,div,span,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+abbr,address,cite,code,
+del,dfn,em,img,ins,kbd,q,samp,
+small,strong,sub,sup,var,
+b,i,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+body{line-height:1;}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{display:block;}
+nav ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,
+q:before,q:after{content:'';content:none;}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;}
+/* change colours to suit your needs */
+ins{background-color:#ff9;color:#000;text-decoration:none;}
+/* change colours to suit your needs */
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold;}
+del{text-decoration:line-through;}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help;}
+table{border-collapse:collapse;border-spacing:0;}
+/* change border colour to suit your needs */
+hr{display:block;height:1px;border:0;border-top:1px solid #cccccc;margin:1em 0;padding:0;}
+input,select{vertical-align:middle;}
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:#fff;}
+#colorbox{}
+    #cboxTopLeft{width:25px; height:25px; background:url(/images/colorbox/border1.png) no-repeat 0 0;}
+    #cboxTopCenter{height:25px; background:url(/images/colorbox/border1.png) repeat-x 0 -50px;}
+    #cboxTopRight{width:25px; height:25px; background:url(/images/colorbox/border1.png) no-repeat -25px 0;}
+    #cboxBottomLeft{width:25px; height:25px; background:url(/images/colorbox/border1.png) no-repeat 0 -25px;}
+    #cboxBottomCenter{height:25px; background:url(/images/colorbox/border1.png) repeat-x 0 -75px;}
+    #cboxBottomRight{width:25px; height:25px; background:url(/images/colorbox/border1.png) no-repeat -25px -25px;}
+    #cboxMiddleLeft{width:25px; background:url(/images/colorbox/border2.png) repeat-y 0 0;}
+    #cboxMiddleRight{width:25px; background:url(/images/colorbox/border2.png) repeat-y -25px 0;}
+    #cboxContent{background:#fff; overflow:hidden;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{margin-bottom:20px;}
+        #cboxTitle{position:absolute; bottom:0px; left:0; text-align:center; width:100%; color:#999;}
+        #cboxCurrent{position:absolute; bottom:0px; left:100px; color:#999;}
+        #cboxSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}
+        #cboxPrevious{position:absolute; bottom:0px; left:0; color:#444;}
+        #cboxNext{position:absolute; bottom:0px; left:63px; color:#444;}
+        #cboxLoadingOverlay{background:#fff url(/images/colorbox/loading.gif) no-repeat 5px 5px;}
+        #cboxClose{position:absolute; top: 14px; right: 14px; display:block; color:#444; background:url(/images/colorbox/controls.png) no-repeat 0 0; width:21px; height:21px; text-indent:-9999px;}
+        #cboxClose.hover{background-position: 0 -25px;}
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to IE9.
+*/
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}
+
+/*
+  The following provides PNG transparency support for IE6
+*/
+.cboxIE6 #cboxTopLeft{background:url(/images/colorbox/ie6/borderTopLeft.png);}
+.cboxIE6 #cboxTopCenter{background:url(/images/colorbox/ie6/borderTopCenter.png);}
+.cboxIE6 #cboxTopRight{background:url(/images/colorbox/ie6/borderTopRight.png);}
+.cboxIE6 #cboxBottomLeft{background:url(/images/colorbox/ie6/borderBottomLeft.png);}
+.cboxIE6 #cboxBottomCenter{background:url(/images/colorbox/ie6/borderBottomCenter.png);}
+.cboxIE6 #cboxBottomRight{background:url(/images/colorbox/ie6/borderBottomRight.png);}
+.cboxIE6 #cboxMiddleLeft{background:url(/images/colorbox/ie6/borderMiddleLeft.png);}
+.cboxIE6 #cboxMiddleRight{background:url(/images/colorbox/ie6/borderMiddleRight.png);}
+
+.cboxIE6 #cboxTopLeft,
+.cboxIE6 #cboxTopCenter,
+.cboxIE6 #cboxTopRight,
+.cboxIE6 #cboxBottomLeft,
+.cboxIE6 #cboxBottomCenter,
+.cboxIE6 #cboxBottomRight,
+.cboxIE6 #cboxMiddleLeft,
+.cboxIE6 #cboxMiddleRight {
+    _behavior: expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')");
+}
+/**
+ * stylesheet for sptf_test
+ * 
+ * @author Bastian Kuberek <bastian@bkuberek.com>
+ */
+ 
+body {
+    font-family: helvetica, arial, sans-serif;
+}
+
+.sptf-wrap { 
+    width: 980px; 
+    margin: 0 auto;
+}
+
+.logo-bar {
+    display: block;
+    width: 100%;
+    height: 49px;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    background: transparent url(/images/bg-logo-bar.png) 0 0 no-repeat scroll;
+}
+
+.logo-bar a.logo {
+    display: block;
+    float: left;
+    width: 110px;
+    height: 44px;
+    margin: 2px 0 0 15px;
+    text-indent: -9999px;
+}
+
+header { 
+    margin: 0 0 20px 0; 
+    width: 100%;
+    background: transparent url(/images/bg-header.png) 0 100% no-repeat scroll;
+}
+
+header:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+header .spotify-free {
+    float: left;
+    background: transparent url(/images/spotify-free.png) 0 0 no-repeat scroll;
+    margin: 60px 0 10px 50px;
+    height: 76px;
+    width: 440px;
+    font-size: 20px;
+    color: #ffffff;
+    text-indent: -9999px;
+}
+
+header .spotify-free-info {
+    color: #fff;
+    float: left;
+    width: 440px;
+    height: 65px;
+    margin: 10px 0 10px 50px;
+    font-size: 14px;
+    line-height: 2em;
+}
+
+header img.app-shots {
+    float: right;
+    margin: 20px 40px 0 0;
+}
+
+header .spotify-free-try {
+    float: left;
+    width: 408px;
+    height: 106px;
+    margin: 10px 0 0 30px;
+    padding: 10px 10px 0 10px;
+    background: transparent url(/images/bg-btn01.png) 0 0 no-repeat scroll;
+}
+
+.spotify-free-try-btn {
+    display: block;
+    width: 387px;
+    height: 69px;
+    background: transparent url(/images/btn-try-spotify-free.png) 0 0 no-repeat scroll;
+    text-indent: -9999px;
+}
+
+footer {
+    margin: 40px 0;
+}
+
+footer .terms {
+    font-size: 0.7em;
+    color: #b3b3b3;
+}
+
+footer .terms strong {
+    color: #868686;
+}
+
+footer .copyright {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 20px;
+    color: #c2c2c2;
+}
+
+section.homepage {
+    padding: 0 15px;
+}
+
+section.homepage .section-header {
+    width: 100%;
+    height: 48px;
+    background: transparent url(/images/homepage-section-head.png) 50% 50% no-repeat scroll;
+    text-indent: -9999px;
+}
+
+section.homepage .row {
+    padding: 20px 0;
+}
+
+section.homepage .row:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+section.homepage article {
+    float: left;
+    width: 281px;
+}
+
+section.homepage article.col2 {
+    margin: 0 53px;
+}
+
+section.homepage article .info {
+    padding: 0 12px;
+}
+
+section.homepage article h3 {
+    color: #7ab800;
+}
+
+section.homepage article p {
+    padding: 5px 0;
+    line-height: 1.4em;
+    color: #333333;
+}
+
+section.homepage article .read-more {
+    font-family: arial, helvetica, sans-serif;
+    color: #19456d;
+    text-decoration: none;
+}
+
+section.homepage article .read-more:hover {
+    text-decoration: underline;
+}
+
+section.movies .filters {
+    margin: 0 0 20px 0;
+}
+
+section.movies #filter-range {
+    display: inline;
+}
+
+section.movies table.list {
+    width: 100%;
+}
+
+section.movies table.list th,
+section.movies table.list td {
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+}
+
+section.movies table.list th {
+    background: #dfeeb8;
+}
+
+section.movies table.list tr:nth-child(even) td {
+    background: #d9d9d9;
+}
+
+section.movies h1 {
+    font-size: 2em;
+    margin: 0 0 1em 0;
+}
+
+#colorbox h3.title {
+    height: 34px;
+    overflow: hidden;
+    background: transparent url(/images/bg-logo-bar.png) 50% 50% no-repeat scroll;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 16px 0 0 20px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#colorbox .box-content {
+    color: #fff;
+    padding: 20px;
+    font-size: 14px;
+    background: transparent url(/images/bg-header.png) 85% 65% no-repeat scroll;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}   
+
+#colorbox form {
+    padding: 20px 0 0 0;
+}
+
+#colorbox .form-row {
+    height: 16px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+#colorbox .form-row:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#colorbox .form-action {
+    margin-top: 20px;
+}
+
+#colorbox .form-row label {
+    display: block;
+    width: 120px;
+    float: left;
+    font-weight: bold;
+    line-height: 24px;
+}
+
+#colorbox .form-row input[type="text"],
+#colorbox .form-row input[type="url"],
+#colorbox .form-row input[type="email"],
+#colorbox .form-row input[type="number"],
+#colorbox .form-row input[type="password"] {
+    width: 230px;
+    float: left;
+    margin-right: 10px;
+}
+
+#colorbox .form-row .notification {
+    display: block;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    width: 238px;
+}

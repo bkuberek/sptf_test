@@ -5,7 +5,7 @@
         <title>{% block title %}Free Music is Here - Download Spotify{% endblock %}</title>
         <meta name="robots" content="noindex,nofollow" />
         {% block stylesheets %}
-        {% stylesheets 'css/reset.css' 'css/colorbox.css' 'css/main.css' filter='yui_css' output='css/combined.css' %}
+        {% stylesheets 'css/reset.css' 'css/colorbox.css' 'css/main.css' filter='?yui_css' output='css/combined.css' %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
         {% endstylesheets %}
         {% endblock %}
@@ -36,7 +36,7 @@
             </footer>
         </div>
         {% block javascripts %}
-        {% javascripts 'js/jquery.min.js' 'js/jquery.colorbox-min.js' 'js/app.js' filter='closure' output='js/combined.js' %}
+        {% javascripts 'js/jquery.min.js' 'js/jquery.colorbox-min.js' 'js/app.js' filter='?closure' output='js/combined.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         {% endblock %}
