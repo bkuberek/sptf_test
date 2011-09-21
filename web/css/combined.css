@@ -386,5 +386,70 @@ section.movies h1 {
     float: left;
     height: 24px;
     line-height: 24px;
-    width: 238px;
+    width: 208px;
+    padding-left: 30px;
+    color: #fff;
+    font-weight: bold;
+}
+
+#colorbox .form-row .notification.valid {
+    background: transparent url(/images/valid.png) 0 50% no-repeat scroll;
+}
+
+#colorbox .form-row .notification.error {
+    color: red;
+    background: transparent url(/images/error.png) 0 50% no-repeat scroll;
+}
+
+#colorbox p {
+    line-height: 1.4em;
+}
+
+#colorbox .downloads {
+    margin: 20px 0; 
+}
+
+#colorbox .downloads:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#colorbox .downloads img {
+    float: right;
+    margin-right: 40px;
+}
+
+#colorbox .downloads ul {
+    float: left;
+    list-style: none;
+    margin: 16px 0 0 30px;
+    padding: 0;
+}
+
+#colorbox .downloads li {
+    margin: 10px 0;
+}
+
+#colorbox .downloads li a {
+    display: block;
+    width: 184px;
+    height: 30px;
+    background: transparent url(/images/icons.png) -58px -88px no-repeat scroll;
+    color: #fff;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 20px;
+    text-decoration: none;
+}
+
+#colorbox .downloads li a:hover {
+    background-position: -58px -124px;
+}
+
+#colorbox .downloads li a:active {
+    background-position: -58px -160px;
 }

@@ -12,46 +12,6 @@ t[h]}if(f.isEmptyObject(t)){var u=s.handle;u&&(u.elem=null),delete s.events,dele
  * @author Bastian Kuberek <bastian@bkuberek.com>
  */
 
-var User = User || {};
-
-User.validate = function(key, value) {
-    var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-    var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-    var weakRegex = new RegExp("(?=.{6,}).*", "g");
-    
-    var response = {};
-    
-    // this is not working. I can't figure this out at the moment. Perhaps another time.'
-    switch (key) {
-        case 'user_username':
-        case 'user_email':
-            $.ajax({
-                url: "/user/validate",
-                type: 'get',
-                dataType: 'json',
-                data: {field: key, value: value},
-                success: function(data){
-                    console.log('ajax', data)
-                    response = data;
-                }
-            });
-            break;
-        case 'user_password':
-            if (false == weakRegex.test(value)) {
-                response.valid = true;
-                response.message = 'Weak!'
-            } else if (strongRegex.test(value)) {
-                response.valid = true;
-                response.message = 'Strong!'
-            } else if (mediumRegex.test(value)) {
-                response.valid = true;
-                response.message = 'Medium!'
-            }
-            break;
-    }
-    return response;
-};
-
 $(document).ready(function() {
     
     var decache = Math.random() * 999999999999;
@@ -69,29 +29,99 @@ $(document).ready(function() {
             $('#colorbox form').bind('submit', function(event) {
                 event.preventDefault();
                 
-                
+                if (this.valid) {
+                    $('#cboxLoadedContent').load('/try-premium/success', function() {
+                        $.colorbox.resize();
+                    });
+                } else {
+                    alert('Please correct the errors and try again');
+                }
+
                 return false;
             });
             
             // could do some form field validation here...
+            $('#colorbox form input').bind('blur', function(event) { $(this).trigger('keyup'); });
             $('#colorbox form input').bind('keyup', function(event) {
-                if (this.value.length < 3) {
-                    this.valid = false;
+                var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+                var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+                var weakRegex = new RegExp("(?=.{6,}).*", "g");
+                var input = this, value = input.value, id = input.id;
+                var form = $(this).parents('form')[0];
+                
+                if (value.length < 3) {
+                    form.valid = false;
+                    $(input).next('.notification').text(value.length == 0 ? 'Required' : 'Too short. Minimum 3 characters');
+                    $(input).next('.notification').addClass('error');
                     return;
                 }
-                var response = User.validate(this.id, this.value);
-                var msg;
-                if (response.valid) {
-                    msg = 'ok.'
-                } else {
-                    msg = 'bad.'
-                }
                 
-                if (response.message) {
-                    msg += ' '+ response.message;
+                switch (id) {
+                    case 'user_username':
+                    case 'user_email':
+                        $.ajax({
+                            url: "/user/validate",
+                            type: 'get',
+                            dataType: 'json',
+                            data: {
+                                field: id, 
+                                value: value
+                            },
+                            success: function(data){
+                                if (data.valid) {
+                                    form.valid = true;
+                                    $(input).next('.notification').removeClass('error');
+                                    $(input).next('.notification').addClass('valid');
+                                } else {
+                                    form.valid = false;
+                                    $(input).next('.notification').removeClass('valid');
+                                    $(input).next('.notification').addClass('error');
+                                }
+                                
+                                if (data.message) {
+                                    $(input).next('.notification').text(data.message);
+                                }
+                            }
+                        });
+                        break;
+                        
+                    case 'user_password':
+                        if (false == weakRegex.test(value)) {
+                            form.valid = true;
+                            $(input).next('.notification').removeClass('error');
+                            $(input).next('.notification').addClass('valid');
+                            $(input).next('.notification').text('Weak');
+                        } else if (strongRegex.test(value)) {
+                            form.valid = true;
+                            $(input).next('.notification').removeClass('error');
+                            $(input).next('.notification').addClass('valid');
+                            $(input).next('.notification').text('Strong!');
+                        } else if (mediumRegex.test(value)) {
+                            form.valid = true;
+                            $(input).next('.notification').removeClass('error');
+                            $(input).next('.notification').addClass('valid');
+                            $(input).next('.notification').text('Medium');
+                        } else {
+                            form.valid = false;
+                            $(input).next('.notification').removeClass('valid');
+                            $(input).next('.notification').addClass('error');
+                        }
+                        break;
+                        
+                    case 'user_password_again':
+                        if (value == $('#user_password').attr('value')) {
+                            form.valid = true;
+                            $(input).next('.notification').removeClass('error');
+                            $(input).next('.notification').addClass('valid');
+                            $(input).next('.notification').text('Match');
+                        } else {
+                            form.valid = false;
+                            $(input).next('.notification').removeClass('valid');
+                            $(input).next('.notification').addClass('error');
+                            $(input).next('.notification').text('Does not match');
+                        }
+                        break;
                 }
-                
-                $(this).next('.notification').text(msg)
             });
         }
     });
