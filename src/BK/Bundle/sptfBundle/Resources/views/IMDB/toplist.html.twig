@@ -44,8 +44,8 @@
             {% for rank, movie in movies %}
             <tr>
               <td>
-                {% if movie.imageSmall %}
-                <img src="{{ movie.imageSmall }}" />
+                {% if movie.imageLarge %}
+                    <img src="/uploads/movie/thumbs/small/{{ movie.imageLarge }}" alt="Movie cover" />
                 {% endif %}
               </td>
               <td>{{ rank + 1 }}.</td>

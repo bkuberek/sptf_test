@@ -3,5 +3,5 @@
 *~
 /app/cache/*
 /app/logs/*
-
+/web/uploads/*
 nbproject

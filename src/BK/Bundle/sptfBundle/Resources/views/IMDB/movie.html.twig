@@ -4,7 +4,7 @@
 <section class="movies">
     <article class="movie">
         {% if movie.imageLarge %}
-            <img src="{{ movie.imageLarge }}" alt="Movie cover" />
+            <img src="/uploads/movie/full/{{ movie.imageLarge }}" alt="Movie cover" />
         {% endif %}
         <h1>{{ movie.title }} <span class="year">({{ movie.year }})</span></h1>
         {% if movie.originalTitle %}
