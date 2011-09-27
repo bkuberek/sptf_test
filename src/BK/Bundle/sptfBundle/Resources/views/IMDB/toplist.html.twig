@@ -53,6 +53,9 @@
                 <a href="{{ path('imdb_movie', {'id': movie.id }) }}">
                   {{ movie.title }}
                 </a>
+                {% if movie.description %}
+                      <p class="description">{{ movie.description|truncate(70) }} <a href="{{ path('imdb_movie', {'id': movie.id }) }}">read more</a></p>
+                {% endif %}
               </td>
               <td>{{ movie.year }}</td>
               <td>{{ movie.rating }}</td>
